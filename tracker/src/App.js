@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react"
 import './App.css';
 import { FormControl, Select, MenuItem, Card, CardContent } from "@material-ui/core"
 import Info from "./components/Info";
+import Table from "./components/Table";
+import { sortData } from "./util";
 
 function App() {
 
@@ -10,6 +12,7 @@ function App() {
 
   const [country, setCountry] = useState("worldwide")
   const [countryInfo, setCountryInfo] = useState({})
+  const [info, setInfo] = useState([])
 
   useEffect(() => {
 
@@ -25,7 +28,8 @@ function App() {
               value: item.countryInfo.iso2
             }
           ))
-
+          const sortedData = sortData(data)
+          setInfo(sortedData)
           setCountryArr(arr)
         })
     }
@@ -89,7 +93,8 @@ function App() {
       <div className="col-2">
         <Card>
           <CardContent>
-            Live Cases By Country
+            <h1>Live Cases By Country</h1>
+            <Table countriesData={info}/>
             WorldWide new Cases
           </CardContent>
         </Card>

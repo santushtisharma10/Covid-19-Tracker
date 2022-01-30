@@ -27,6 +27,25 @@ body {
   display: flex;
   justify-content: space-between;
 }
+.table {
+
+  margin-top: 20px;
+  overflow: scroll;
+  max-height: 500px;
+}
+.table tr {
+
+  display: flex;
+  justify-content: space-between;
+}
+.table td {
+  
+  padding: 10px;
+}
+.table tr:nth-child(odd) {
+
+  background-color: azure;
+}
 
 @media (max-width: 900px) {
   .App {
