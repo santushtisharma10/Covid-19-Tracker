@@ -31,7 +31,8 @@ body {
 
   margin-top: 20px;
   overflow: scroll;
-  max-height: 500px;
+  max-height: 500px; 
+  
 }
 .table tr {
 
@@ -39,14 +40,18 @@ body {
   justify-content: space-between;
 }
 .table td {
-  
+
   padding: 10px;
 }
 .table tr:nth-child(odd) {
 
   background-color: azure;
 }
+.graph {
 
+  height: 400px;
+  padding: 5px;
+}
 @media (max-width: 900px) {
   .App {
     flex-direction: column;

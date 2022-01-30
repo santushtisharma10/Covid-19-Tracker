@@ -4,6 +4,7 @@ import { FormControl, Select, MenuItem, Card, CardContent } from "@material-ui/c
 import Info from "./components/Info";
 import Table from "./components/Table";
 import { sortData } from "./util";
+import Graph from "./components/Graph";
 
 function App() {
 
@@ -95,7 +96,8 @@ function App() {
           <CardContent>
             <h1>Live Cases By Country</h1>
             <Table countriesData={info}/>
-            WorldWide new Cases
+            <h3>WorldWide new Cases</h3>
+            <Graph caseType="cases"/>
           </CardContent>
         </Card>
       </div>
