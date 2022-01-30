@@ -1,11 +1,19 @@
 .App {
   margin: 0;
 }
+body {
+  background-color: azure;
+}
 
 .header {
 
   display: flex;
   align-items: center;
   margin-bottom: 15px;
+  justify-content: space-between;
+}
+.info-card {
+
+  display: flex;
   justify-content: space-between;
 }
