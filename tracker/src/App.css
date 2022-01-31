@@ -47,11 +47,26 @@ body {
 
   background-color: azure;
 }
-.graph {
+.map {
 
   height: 400px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 6px -3px rgba(0, 0, 0, 0.5);
+}
+
+.map .leaflet-container {
+
+  height: 100%;
+}
+
+.graph {
+
+  height: 300px;
   padding: 5px;
 }
+
 @media (max-width: 900px) {
   .App {
     flex-direction: column;

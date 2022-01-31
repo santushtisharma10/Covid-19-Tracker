@@ -5,6 +5,8 @@ import Info from "./components/Info";
 import Table from "./components/Table";
 import { sortData } from "./util";
 import Graph from "./components/Graph";
+import Map from "./components/Map";
+import "leaflet/dist/leaflet.css"
 
 function App() {
 
@@ -14,6 +16,8 @@ function App() {
   const [country, setCountry] = useState("worldwide")
   const [countryInfo, setCountryInfo] = useState({})
   const [info, setInfo] = useState([])
+  const [center, setCenter] = useState([34.80746, -40.4796])
+  const [zoom, setZoom] = useState(2);
 
   useEffect(() => {
 
@@ -61,6 +65,8 @@ function App() {
     .then(data =>  {
       
       setCountryInfo(data)
+      setCenter([data.countryInfo.lat,  data.countryInfo.long])
+      setZoom(4)      
     })
 
   }
@@ -89,6 +95,8 @@ function App() {
           <Info title="recovered cases" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
           <Info title="death cases" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
         </div>
+
+        <Map center={center} zoom={zoom} />
       </div>
 
       <div className="col-2">
