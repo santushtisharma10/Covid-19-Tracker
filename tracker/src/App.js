@@ -18,6 +18,7 @@ function App() {
   const [info, setInfo] = useState([])
   const [center, setCenter] = useState([34.80746, -40.4796])
   const [zoom, setZoom] = useState(2);
+  const [mapCountry, setMapCountry] = useState([])
 
   useEffect(() => {
 
@@ -33,6 +34,7 @@ function App() {
               value: item.countryInfo.iso2
             }
           ))
+          setMapCountry(data)
           const sortedData = sortData(data)
           setInfo(sortedData)
           setCountryArr(arr)
@@ -46,6 +48,7 @@ function App() {
       .then(data => {
 
         setCountryInfo(data)
+      
       })
     }
 
@@ -64,9 +67,21 @@ function App() {
     .then(res => res.json())
     .then(data =>  {
       
+      console.log(newCountry)
+      
+      
+      if(newCountry === "worldwide") {
+
+        setCenter([34.80746, -40.4796])
+        setZoom(2)    
+      }
+      else {
+
+        setCenter([data.countryInfo.lat,  data.countryInfo.long])
+        setZoom(4)    
+      }
       setCountryInfo(data)
-      setCenter([data.countryInfo.lat,  data.countryInfo.long])
-      setZoom(4)      
+        
     })
 
   }
@@ -96,7 +111,7 @@ function App() {
           <Info title="death cases" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
         </div>
 
-        <Map center={center} zoom={zoom} />
+        <Map countries={mapCountry} center={center} zoom={zoom} />
       </div>
 
       <div className="col-2">
