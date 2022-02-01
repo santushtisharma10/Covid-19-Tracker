@@ -7,6 +7,7 @@ import { sortData } from "./util";
 import Graph from "./components/Graph";
 import Map from "./components/Map";
 import "leaflet/dist/leaflet.css"
+import { presentNum } from "./util";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
   const [center, setCenter] = useState([34.80746, -40.4796])
   const [zoom, setZoom] = useState(2);
   const [mapCountry, setMapCountry] = useState([])
+  const [caseType, setCaseType] = useState("cases")
 
   useEffect(() => {
 
@@ -106,12 +108,20 @@ function App() {
         </div>
 
         <div className="info-card">
-          <Info title="coronavirus cases" cases={countryInfo.todayCases} total={countryInfo.cases} />
-          <Info title="recovered cases" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
-          <Info title="death cases" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
+          <Info onClick ={()=>setCaseType("cases")}
+          active={caseType === "cases"}
+          title="Coronavirus Cases" 
+          cases={presentNum(countryInfo.todayCases)}
+           total={presentNum(countryInfo.cases)} />
+          <Info onClick= {()=>setCaseType("recovered")}
+          active={caseType === "recovered"}
+           title="Recovered Cases" cases={presentNum(countryInfo.todayRecovered)} total={presentNum(countryInfo.recovered)} />
+          <Info onClick = {()=>setCaseType("deaths")}
+          active={caseType === "deaths"}
+          title="Death Cases" cases={presentNum(countryInfo.todayDeaths)} total={presentNum(countryInfo.deaths)} />
         </div>
 
-        <Map countries={mapCountry} center={center} zoom={zoom} />
+        <Map countries={mapCountry} caseType={caseType} center={center} zoom={zoom} />
       </div>
 
       <div className="col-2">
@@ -119,8 +129,8 @@ function App() {
           <CardContent>
             <h1>Live Cases By Country</h1>
             <Table countriesData={info}/>
-            <h3>WorldWide new Cases</h3>
-            <Graph caseType="cases"/>
+            <h3>WorldWide new {caseType}</h3>
+            <Graph caseType={caseType}/>
           </CardContent>
         </Card>
       </div>

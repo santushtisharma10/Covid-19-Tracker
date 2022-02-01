@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { MapContainer, TileLayer, useMap } from "react-leaflet"
-//import ChangeView from "./ChangeView"
 import { mapData } from '../util';
 
-const Map = ({countries, center, zoom }) => {
+const Map = ({countries, caseType,  center, zoom }) => {
 
     function ChangeView({ center, zoom }) {
         const map = useMap();
@@ -22,8 +21,7 @@ const Map = ({countries, center, zoom }) => {
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 />
 
-                {console.log(countries)}
-                {mapData(countries)}
+                {mapData(countries, caseType)}
             </MapContainer>
 
         </div>

@@ -1,7 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { Line } from "react-chartjs-2"
 import numeral from "numeral"
-
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+  } from "chart.js";
+  
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+  )
 const options = {
 
     legend: {
@@ -64,7 +83,7 @@ const Graph = ({caseType}) => {
 
     const [graphData, setGraphData] = useState([])
 
-    const buildData = (data, caseType = "cases") => {
+    const buildData = (data, caseType) => {
 
         const ans = []
         let lastData = 0
@@ -93,9 +112,10 @@ const Graph = ({caseType}) => {
             .then(res => res.json())
                 .then((data) => {
 
+                    console.log("Data in Line Graph", data)
                     const lineData = buildData(data, caseType)
 
-                    console.log(lineData, graphData)
+                    console.log("Line Data", lineData)
                     setGraphData(lineData)
                     console.log(graphData)
                 })
@@ -112,7 +132,6 @@ const Graph = ({caseType}) => {
 
                     datasets: [
                         {
-
                             data: graphData,
                             backgroundColor: "rgb(233, 173, 173)",
                             borderColor:"red"

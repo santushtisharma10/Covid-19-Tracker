@@ -5,6 +5,7 @@
 
   display: flex;
   justify-content: space-evenly;
+  margin-top: 20px;
 }
 body {
   background-color: azure;
@@ -22,11 +23,43 @@ body {
   margin-bottom: 15px;
   justify-content: space-between;
 }
+/* Information card */
 .info-card {
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;  
 }
+
+.info {
+
+  flex: 1;
+  padding: 5px;
+  
+}
+.info:not(:last-child) {
+
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.info--selected {
+
+  border-top: 10px solid #CC1034;
+}
+.info-cases {
+
+  color:  #CC1034;
+  margin-bottom: 5px;
+
+}
+.info h4 {
+
+  color: rgb(156, 154, 154) !important;
+}
+.info-cases, .info-title, .info-total {
+
+  padding-top: 2px;
+}
+/* Table */
 .table {
 
   margin-top: 20px;
@@ -47,6 +80,7 @@ body {
 
   background-color: azure;
 }
+/* Map */
 .map {
 
   height: 400px;
@@ -61,6 +95,28 @@ body {
   height: 100%;
 }
 
+.popup-flag {
+
+  width: 100%;
+  height: 80px;
+  background-size: cover;
+  border-radius: 6px;
+}
+
+.popup-name {
+
+  font-size: 18px;
+  margin: 2px;
+}
+
+.popup-cases, .popup-recover, .popup-death {
+
+  font-size: 12px;
+  margin: 2px;
+}
+
+
+/* Line Graph */
 .graph {
 
   height: 300px;

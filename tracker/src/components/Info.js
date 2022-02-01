@@ -1,14 +1,14 @@
 import React from 'react';
-import {Card, CardContent, Typography} from "@material-ui/core"
+import {Card, CardContent} from "@material-ui/core"
 
-function Info({title, cases, total}) {
+function Info({title, active, cases, total, ...props}) {
     return (
-        <div>
-            <Card className="info">
+        <div className="info">
+            <Card className={active && 'info--selected'} onClick={props.onClick} >
                 <CardContent>
-                    <Typography className="title" color="textSecondary">{title}</Typography>
-                    <h2 className='cases'>{cases}</h2>
-                    <Typography className='total' color="textSecondary">{total}</Typography>
+                    <h4 className="info-title" >{title}</h4>
+                    <h2 className='info-cases'>{cases}</h2>
+                    <h4 className='info-total' color="textSecondary">{total}</h4>
                 </CardContent>
             </Card>
         </div>
