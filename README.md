@@ -7,8 +7,8 @@ Covid-19 Tracker is a single page react web application .It is a dashboard displ
 This web application uses different react libraries such as chart.js , material ui, react-leaflet
 Initially the dashboard shows the tally of total , recovered and death cases worldwide. User can select the country to view the covid-19 related information of the given country.
 
-# Screenshots
+### Screenshots
 
-# Hosted Url 
+### Hosted Url 
 
 https://covid-19-tracker-app-3cd5e.web.app/
