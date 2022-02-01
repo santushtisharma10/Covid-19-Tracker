@@ -11,9 +11,24 @@ body {
   background-color: azure;
 } 
 
+h1 {
+
+  color: red;
+}
+
+h3 {
+
+  margin-top: 10px;
+  padding: 5px;
+}
+
 .col-1 {
 
   flex: 0.9;
+}
+
+.app-dropdown {
+  background-color: white;
 }
 
 .header {
@@ -34,6 +49,7 @@ body {
 
   flex: 1;
   padding: 5px;
+  cursor: pointer;
   
 }
 .info:not(:last-child) {
@@ -41,15 +57,26 @@ body {
   margin-right: 20px;
   margin-bottom: 20px;
 }
-.info--selected {
+.info-green {
 
-  border-top: 10px solid #CC1034;
+  border-top: 10px solid green ;
 }
+
+.info-red {
+
+  border-color: #CC1034;
+}
+
 .info-cases {
 
-  color:  #CC1034;
+  color:  #f05470;
   margin-bottom: 5px;
 
+}
+
+.info-green-cases {
+
+  color: lightgreen;
 }
 .info h4 {
 
@@ -64,7 +91,7 @@ body {
 
   margin-top: 20px;
   overflow: scroll;
-  max-height: 500px; 
+  max-height: 400px; 
   
 }
 .table tr {

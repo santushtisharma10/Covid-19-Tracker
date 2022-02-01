@@ -9,7 +9,8 @@ import {
     LineElement,
     Title,
     Tooltip,
-    Legend
+    Legend,
+    Filler
   } from "chart.js";
   
   ChartJS.register(
@@ -19,7 +20,8 @@ import {
     LineElement,
     Title,
     Tooltip,
-    Legend
+    Legend,
+    Filler
   )
 const options = {
 
@@ -132,8 +134,10 @@ const Graph = ({caseType}) => {
 
                     datasets: [
                         {
+                            label: caseType,
                             data: graphData,
-                            backgroundColor: "rgb(233, 173, 173)",
+                            backgroundColor: "#EA7777 ",
+                            fill: true,
                             borderColor:"red"
 
                         }
